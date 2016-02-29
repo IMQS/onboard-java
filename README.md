@@ -61,8 +61,8 @@ Also you will need to have completed your environment setup. At the very least y
 
 Getting started
 ----------------
-* Fork the *RESTTemplate* project - use the `master` branch. THis project provides a skeleton for service development
+* Fork the *RESTTemplate* project <https://github.com/IMQS/RESTTemplate.git> - use the `master` branch. This project provides a skeleton for service development.
 * It can be run on its own but really doesn't do much. See the README.md file in that project.
-* Create am IntelliJ prokject from teh POM file and get going!
+* Create am IntelliJ project from the POM file and get going!
 
 
