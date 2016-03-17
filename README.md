@@ -14,35 +14,45 @@ After completing this project you should have a basic understanding of:
 What you need to do
 -------------------
 
-* You need to implement a simple database system that implements basic CRUD operations via RESTful endpoints.  Your service must have a repository implementation that implements the interface `PeopleRepository`.
+* Your client would like you to provide a basic asset register. An asset consists of atleast a description, 
+  the base cost of the asset and the current value of the asset after depreciation. To achieve this you need to implement a simple database system that implements 
+  basic CRUD operations via RESTful endpoints.
 
 ```
-public interface PeopleRepository {
-    public interface Person {
-        public String getFirstName();
-        public String getSurname();
-        public void setFirstName(String firstName);
-        public void setSurname(String surname);
-    }
 
-    public List<Person> getPeople();
-    public List<Person> getPersonByName(String name);
-    public List<Person> getPersonBySurname(String name);
-    public Person getPersonById(Long id);
+@Repository
+public interface AssetRepository {
+    public List<Asset> getAssets();
+    public List<Asset> getAssetsByDescription(String description);
+    public List<Asset> getAssetsByValue(double value);
+    public Asset getAssetById(Long id);
 
-    public Long addPerson(Person person);
-    public void updatePerson(Long id, Person person);
+    public Long addAsset(Asset asset);
+    public void updateAsset(Long id, Asset asset);
 
-    public void deletePersonById(Long id);
+    public void deleteAssetById(Long id);
 }
+
 ```
  
 * The functionality of the repository must be exposed via REST calls. 
+* Your client would like you to prevent the user from adding assets with empty descriptions, negative cost and negative current values.
+* For convenience your client would like to be able to do asset depreciation on existing assets through the rest interface. 
+  The user should be able to pass both the yearly rate of depreciation as a number with range [0,1] and the number of years that have 
+  passed to your service. An asset cannot be worth less than 1 rand.
+  
+  A=C*(1-R)^N
+  A->Actual value
+  C->Base cost
+  R->Depreciation rate
+  N->Number of years
+  
+* Data validation and business rules should be implemented at the service layer.
 * You must write unit tests using JUnit. 
 * You must be able to deploy and run the service on your machine - i.e. as a windows service.
 * You must be able to run the service from your IDE
 * You must be able to single step through your service using the IDE's built in debugger
- 
+
 Pre-requisites
 ----------------
 
