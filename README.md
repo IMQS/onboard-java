@@ -18,7 +18,7 @@ What you need to do
   the base cost of the asset and the current value of the asset after depreciation. To achieve this you need to implement a simple database system that implements 
   basic CRUD operations via RESTful endpoints.
 
-...
+```
 
 @Repository
 public interface AssetRepository {
@@ -33,7 +33,7 @@ public interface AssetRepository {
     public void deleteAssetById(Long id);
 }
 
-...
+```
  
 * The functionality of the repository must be exposed via REST calls. 
 * Your client would like you to prevent the user from adding assets with empty descriptions, negative cost and negative current values.
